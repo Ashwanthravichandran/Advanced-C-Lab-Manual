@@ -16,19 +16,64 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    switch (n) {
+        case 1:
+            printf("one\n");
+            break;
+        case 2:
+            printf("two\n");
+            break;
+        case 3:
+            printf("three\n");
+            break;
+        case 4:
+            printf("four\n");
+            break;
+        case 5:
+            printf("five\n");
+            break;
+        case 6:
+            printf("six\n");
+            break;
+        case 7:
+            printf("seven\n");
+            break;
+        case 8:
+            printf("eight\n");
+            break;
+        case 9:
+            printf("nine\n");
+            break;
+        case 10:
+            printf("ten\n");
+            break;
+        case 11:
+            printf("eleven\n");
+            break;
+        case 12:
+            printf("twelve\n");
+            break;
+        case 13:
+            printf("thirteen\n");
+            break;
+        default:
+            printf("Greater than 13\n");
+            break;
+    }
 
-
-
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/f8569840-dca6-4552-84d6-d2d6f5f0d934)
 
 
 Result:
@@ -47,18 +92,34 @@ Algorithm:
  
 Program:
 
-//type your code here
-
-
-
+```
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char string[100];
+    int count[10] = {0};
+    printf("Enter the string : ");
+    fgets(string,100,stdin);
+    string[strlen(string)-1] = '\0';
+    for(int i=0;i<strlen(string);i++)
+    {
+        if(isdigit(string[i]))
+        {
+            count[string[i] - '0']++;
+        }
+    }
+    for(int i=0;i<10;i++)
+    {
+        printf("%d ",count[i]);
+    }
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
+![image](https://github.com/user-attachments/assets/71f6a70a-dfee-465c-b615-5846f8268263)
 
 
 
@@ -84,19 +145,76 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void swap(char* a, char* b) {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
+void reverse(char* str, int start, int end) {
+    while (start < end) {
+        swap(&str[start], &str[end]);
+        start++;
+        end--;
+    }
+}
 
+int next_permutation(char* str, int n) {
+    int i = n - 2;
 
+    while (i >= 0 && str[i] >= str[i + 1]) {
+        i--;
+    }
+
+    if (i < 0) {
+        return 0;
+    }
+    int j = n - 1;
+    while (str[j] <= str[i]) {
+        j--;
+    }
+    swap(&str[i], &str[j]);
+    reverse(str, i + 1, n - 1);
+
+    return 1;
+}
+
+int main() {
+    char* s;
+    int n;
+    s = (char*)malloc(50 * sizeof(char)); 
+    if (s == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    printf("Enter a string: ");
+    scanf("%s", s);
+    n = strlen(s);
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (s[i] > s[j]) {
+                swap(&s[i], &s[j]);
+            }
+        }
+    }
+
+    do {
+        printf("%s\n", s);
+    } while (next_permutation(s, n));
+
+    free(s);
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/425d0332-d44c-4ca9-bf27-862307331030)
 
 
 Result:
@@ -117,19 +235,30 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+int main() {
+    int n, len;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    len = n * 2 - 1;
+    for (int i = 0; i < len; i++) {
+        for (int j = 0; j < len; j++) {
+            int min = i < j ? i : j;
+            if (min > len - i - 1) min = len - i - 1;
+            if (min > len - j - 1) min = len - j - 1;
+            printf("%d ", n - min);
+        }
+        printf("\n");
+    }
 
-
-
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/fabf8f59-aab3-43bc-b567-0b1f99bde552)
 
 
 Result:
@@ -156,47 +285,30 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+int square() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num * num;
+}
 
+int main() {
+    int result;
+    result = square();
+    printf("The square of the number is: %d\n", result);
 
-
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/081e44e1-f9af-4c7e-9e8b-6671b6ac3cee)
 
 
 
 
 Result:
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
