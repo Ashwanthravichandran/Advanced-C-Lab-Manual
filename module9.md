@@ -13,12 +13,53 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#define MAX 10 
+int stack[MAX];
+int top = -1;
+
+void push(int value) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        stack[++top] = value;
+    }
+}
+
+void pop() {
+    if (top == -1) {
+        printf("Stack Underflow\n");
+    } else {
+        printf("Popped element: %d\n", stack[top--]);
+    }
+}
+
+void display() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+    } else {
+        printf("Stack elements are:\n");
+        for (int i = top; i >= 0; i--) {
+            printf("%d\n", stack[i]);
+        }
+    }
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    display();
+    pop();
+    display();
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/e2a68858-1cbe-4227-b382-bcec03d7824a)
 
 
 Result:
@@ -36,13 +77,36 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#define MAX 5 
+float stack[MAX];
+int top = -1;
+
+void push(float value) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        stack[++top] = value;
+        printf("Pushed %.2f onto the stack\n", value);
+    }
+}
+
+int main() {
+    push(10.5);
+    push(20.2);
+    push(30.3);
+    push(40.4);
+    push(50.5);
+    push(60.6);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/07625240-85e7-47f3-86a1-9b05296fc92c)
 
 
 Result:
@@ -62,11 +126,51 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#define MAX 5
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int value) {
+    if (rear == MAX - 1) {
+        printf("Queue Overflow\n");
+    } else {
+        if (front == -1) front = 0;
+        queue[++rear] = value;
+        printf("Enqueued %d\n", value);
+    }
+}
+
+void display() {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Queue elements are:\n");
+        for (int i = front; i <= rear; i++) {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/d9230357-0c04-4493-8c5b-7c89c167a102)
+
 
 
 Result:
@@ -86,11 +190,39 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#define MAX 5 
+float queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(float value) {
+    if (rear == MAX - 1) {
+        printf("Queue Overflow\n");
+    } else {
+        if (front == -1) front = 0;
+        queue[++rear] = value;
+        printf("Enqueued %.2f\n", value);
+    }
+}
+
+int main() {
+    enqueue(10.5);
+    enqueue(20.2);
+    enqueue(30.3);
+    enqueue(40.4);
+    enqueue(50.5);
+
+    enqueue(60.6);
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/b017b1ed-5721-4603-9df8-fd524c53d994)
+
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -121,11 +253,46 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+void dequeue() {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Deleted element: %d\n", queue[front]);
+        front++;
+
+        if (front > rear) {
+            front = -1;
+            rear = -1;
+        }
+    }
+}
+
+int main() {
+    
+    queue[++rear] = 10;
+    front = rear;
+    queue[++rear] = 20;
+    queue[++rear] = 30;
+
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/1f6347ed-27dc-47aa-abef-90ac12644a36)
 
 
 Result:
